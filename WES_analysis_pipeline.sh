@@ -15,7 +15,7 @@ sambamba sort na12878_wes.bam
 # Add readgroups
 java -jar $PICARD AddOrReplaceReadGroups \
 I=$inputfile dedupped_na12878_wes.sorted.bam \
-O=$outputfile RG_dedupped_na12878_wes.sorted.bam \
+O=$outputfile ../RG_dedupped_na12878_wes.sorted.bam \
 CREATE_INDEX=true \
 RGLB=$LB WES \
 RGPL=$PL illumina \
@@ -26,7 +26,7 @@ RGPU=$PU slide_barcode
 java -jar $GATK \
 -T HaplotypeCaller \
 -R ../Homo_sapiens.GRCh37.GATK.illumina/Homo_sapiens.GRCh37.GATK.illumina.fasta  \
--I RG_dedupped_na12878_wes.sorted.bam \
+-I ../RG_dedupped_na12878_wes.sorted.bam \
 -o RG_dedupped_na12878_wes.sorted.vcf
 
 # --------------------------------
